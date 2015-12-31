@@ -1,0 +1,73 @@
+﻿<div class="container">
+    <h4>Administração - Area</h4>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12" ng-controller="areaController">
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+                        <input type="text" class="form-control" placeholder="Procurar..." ng-model="searchText">
+                    </div>
+                </div>
+            </form>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:90px"><i class="btn btn-sm btn-grid glyphicon glyphicon-plus" ng-click="add()"/></th>
+                        <th><a ng-click="sortType = 'Name'; sortReverse = !sortReverse">Area de Interesse</a></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-show="editMode==1">
+                        <td>
+                            <i class="btn btn-sm btn-grid glyphicon glyphicon-floppy-disk" ng-click="save()" ng-form="addForm" ng-show="editMode==1" ng-disabled="addForm.$invalid"/>
+                            <i class="btn btn-sm btn-grid glyphicon glyphicon-remove" ng-click="cancel(addForm)" ng-show="editMode==1" />
+                        </td>
+                        <td>
+                            <form name="addForm">
+                                <input type="text" ng-model="newRecord.Name" name="Name" class="form-control" placeholder="novo registo..."  ng-required="true" ng-minlength="5" ng-maxlength="200"/> <!--ng-keydown="saveOnEnter(knownItem, $event)"-->
+                                <p class="help-block alert-danger" ng-show="addForm.Name.$error.minlength">Demasiado curto!</p>
+                                <p class="help-block alert-danger" ng-show="addForm.Name.$error.maxlength">Demasiado longo!</p>
+                            </form>
+
+                        </td>
+                    </tr>
+                    <tr ng-repeat="record in recordList | orderBy:sortType:sortReverse | filter:searchText">
+                        <td>
+                            <i class="btn btn-sm btn-grid glyphicon glyphicon-edit" ng-click="edit(record)" ng-show="editRecord.Id != record.Id" /> <!--Edit Button-->
+                            <i class="btn btn-sm btn-grid glyphicon glyphicon-trash" ng-click="remove(record)" ng-show="editRecord.Id != record.Id" /> <!--Remove Button-->
+                            <i class="btn btn-sm btn-grid glyphicon glyphicon-floppy-disk" ng-click="save()" ng-show="editMode==2 && editRecord.Id == record.Id" ng-disabled="editForm.$invalid"/><!--Save Button-->
+                            <i class="btn btn-sm btn-grid glyphicon glyphicon-remove" ng-click="cancel(editForm)" ng-show="editMode==2 && editRecord.Id == record.Id" /><!--Cancel Button-->
+                        </td>
+                        <td>
+                            <label ng-show="editRecord.Id != record.Id">{{ record.Name }}</label>
+                            <!--ng-model-options="{ updateOn: 'save' }"-->                             
+                            <form name="editForm">
+                                <input type="text" 
+                                       name="Name" 
+                                       ng-show="editMode==2 && editRecord.Id == record.Id" 
+                                       ng-model="editRecord.Name"                                        
+                                       class="form-control" 
+                                       ng-required="true" 
+                                       ng-minlength="5" 
+                                       ng-maxlength="200" 
+                                       placeholder="introduza o nome..." />
+                                <div role="alert" class="alert-danger">
+                                    <span ng-show="editForm.Name.$error.minlength">
+                                        Demasiado curto!
+                                    </span>
+                                    <span ng-show="editForm.Name.$error.maxlength">
+                                        Demasiado longo!
+                                    </span>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

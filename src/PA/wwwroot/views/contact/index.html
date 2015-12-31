@@ -1,0 +1,65 @@
+﻿<div class="container" ng-controller="contactController" >
+    <div>
+        <h4>Envie-nos o seu contacto</h4>
+        <hr />
+        <form class="form-horizontal" role="form" method="post" name="formContact" ng-submit="save()" ng-show="IsSent == false">
+            <div class="form-group col-sm-6">
+                <label for="name" class="col-sm-3 control-label">Nome</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="name" name="name" ng-model="record.Name" placeholder="Primeiro e Ultimo Nome" ng-required="true">
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="email" name="email" ng-model="record.Email" ng-required="true" placeholder="example@domain.com">
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="phone" class="col-sm-3 control-label">Telefone</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="phone" name="phone" ng-model="record.Telefone" placeholder="Exemplo: 912345678">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="subject" class="col-sm-3 control-label">Assunto</label>
+                <div class="col-sm-9">
+                    <select id="subject" name="subject" class="form-control" ng-required="true" ng-model="record.IdSubject">
+                        <option disabled>Selecione</option>
+                        <option ng-repeat="opt in subjectList" value="{{opt.Id}}">{{opt.Name}}</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm-6">
+                <label for="areas" class="col-sm-3 control-label">Areas de Interesse</label>
+                <div class="col-sm-9" id="areas">
+                    <label ng-repeat="opt in areaList" class="checkbox-inline">
+                        <input type="checkbox"
+                        value="{{opt.Id}}"
+                        ng-checked="areaListSelected.indexOf(opt.Id) > -1"
+                        ng-click="updateAreaListSelected(opt.Id)">
+                        {{opt.Name}}
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="message" class="col-sm-3 control-label">Mensagem</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" rows="4" name="message" ng-required="true" ng-model="record.Message"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-2">
+                    <input id="submit" name="submit" type="submit" value="Enviar" class="btn btn-primary"> <!--ng-disabled="formContact.$invalid"-->
+                </div>
+            </div>
+        </form>
+        <p ng-show="IsSent == true" class="alert alert-info">
+            O seu contacto foi enviado com sucesso.
+        </p>
+
+    </div>
+</div>
