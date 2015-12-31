@@ -6,4 +6,4 @@ Single page Application using :
   - AngularJS
   - Bootstrap
   - EntityFramework (CodeFirst) / SQLServer
-  - Visual Studio 2015
+  - Visual Studio Community 2015
