@@ -1,48 +1,56 @@
 ﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PA.Migrations;
+using PA.Models.Entities;
+using PA.Services.Configuration;
 using PA.Services.MessageServices;
-using System.Security.Cryptography;
 
 namespace PA.Models
 {
     public class Startup
     {
         public Startup(IHostingEnvironment env)
-        {
-            // Set up configuration sources.
-            var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
+        {        
         }
-
-        public IConfigurationRoot Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {            
+        {
             
-            var connection = Configuration["Data:DefaultConnection:ConnectionString"];
-
-            services.AddEntityFramework()
-                .AddSqlServer()
-                .AddDbContext<PADbContext>(options => options.UseSqlServer(connection));
 
             // Add framework services.
-            services.AddMvc();
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<ApplicationDbContext>();//(options =>options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddMvc();
+            //.AddJsonOptions(options =>
+            //{
+            //    options.SerializerSettings.ContractResolver =
+            //    new CamelCasePropertyNamesContractResolver();
+            //});
+            
+            // Add application services.         
+            services.AddTransient<IConfigurationRoot, AppSettings>();
+            services.AddTransient<ApplicationDbContextSeeder>();
             services.AddTransient<IEmailSender, AuthMessageSender>();
-            services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddTransient<ISmsSender, AuthMessageSender>();         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IConfigurationRoot appSetting, ApplicationDbContextSeeder seeder)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddConsole(appSetting.GetSection("Logging"));
             loggerFactory.AddDebug();
 
             app.UseIISPlatformHandler();
@@ -51,7 +59,12 @@ namespace PA.Models
 
             app.UseStaticFiles();
 
+            //TODO AUTH
+            //app.UseIdentity();
+
             app.UseMvc();
+            
+            seeder.EnsureSeedData().Wait();            
         }
 
 

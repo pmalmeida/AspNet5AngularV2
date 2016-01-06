@@ -16,29 +16,36 @@ namespace PA.API
     [Route("api/[controller]")]
     public class AreaController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public AreaController(ApplicationDbContext context)
+        {
+            this._context = context;
+        }
+
         // GET: api/values
         [HttpGet]
         public IEnumerable<Area> Get()
         {
-            using (var db = new PADbContext())
-            {               
-                return db.AreaSet.Where(r=>r.Enabled).ToArray();
-            }            
+            //using (var db = new ApplicationDbContext())
+            //{               
+                return _context.AreaSet.Where(r=>r.Enabled).ToArray();
+            //}            
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            using (var db = new PADbContext())
-            {
-                var item = db.AreaSet.SingleOrDefault(r => r.Id == id);
+            //using (var db = new PADbContext())
+            //{
+                var item = _context.AreaSet.SingleOrDefault(r => r.Id == id);
 
                 if (item != null)
                     return HttpNotFound();
 
                 return new ObjectResult(item);
-            }
+            //}
         }
 
         // POST api/values
@@ -52,21 +59,21 @@ namespace PA.API
             if (record == null)
                 return HttpBadRequest();
             
-            using (var db = new PADbContext())
-            {
-                if (db.AreaSet.Any(r => r.Name == record.Name && record.Enabled == false))
+            //using (var db = new PADbContext())
+            //{
+                if (_context.AreaSet.Any(r => r.Name == record.Name && record.Enabled == false))
                 {
-                    var rec = db.AreaSet.Single(r => r.Name == record.Name && record.Enabled == false);
+                    var rec = _context.AreaSet.Single(r => r.Name == record.Name && record.Enabled == false);
                     rec.Enabled = true;
-                    db.Entry(rec).State = EntityState.Modified;
+                    _context.Entry(rec).State = EntityState.Modified;
                 }
                 else
-                    db.AreaSet.Add(record);
+                    _context.AreaSet.Add(record);
 
-                db.SaveChanges();
+                _context.SaveChanges();
 
                 return Ok();
-            }
+            //}
         }
 
         // PUT api/values/5
@@ -79,37 +86,37 @@ namespace PA.API
             if (record == null)
                 return HttpBadRequest();
             
-            using (var db = new PADbContext())
-            {
-                db.Entry(record).State = Microsoft.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
+            //using (var db = new PADbContext())
+            //{
+                _context.Entry(record).State = Microsoft.Data.Entity.EntityState.Modified;
+                _context.SaveChanges();
 
                 return Ok();
-            }
+            //}
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            using (var db = new PADbContext())
-            {
-                var item = db.AreaSet.SingleOrDefault(r => r.Id == id);
+            //using (var db = new PADbContext())
+            //{
+                var item = _context.AreaSet.SingleOrDefault(r => r.Id == id);
 
                 if (item == null)
                     return HttpNotFound();
 
-                if (!db.ContactAreaSet.Any(r => r.IdArea == item.Id))
-                    db.AreaSet.Remove(item);
+                if (!_context.ContactAreaSet.Any(r => r.IdArea == item.Id))
+                    _context.AreaSet.Remove(item);
                 else
                 {
                     item.Enabled = false;
-                    db.Entry(item).State = EntityState.Modified;
+                    _context.Entry(item).State = EntityState.Modified;
                 }
-                db.SaveChanges();
+                _context.SaveChanges();
 
                 return Ok();
-            }
+            //}
         }
     }
 }

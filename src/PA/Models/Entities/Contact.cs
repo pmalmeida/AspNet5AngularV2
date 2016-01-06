@@ -34,8 +34,7 @@ namespace PA.Models.Entities
         [Required(ErrorMessage = "Campo obrigatorio")]
         public string Message { get; set; }
 
-
-        public virtual ICollection<ContactArea> ContactAreas { get; set; }
+        public virtual ICollection<ContactArea> ContactAreas { get; set; }        
     }
     
 }

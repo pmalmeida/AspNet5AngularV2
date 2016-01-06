@@ -569,15 +569,6 @@
           "lib/net451/Microsoft.AspNet.Identity.dll": {}
         }
       },
-      "Microsoft.AspNet.Identity.Core/2.2.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
-        }
-      },
       "Microsoft.AspNet.Identity.EntityFramework/3.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -1338,26 +1329,6 @@
           "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.FileProviderExtensions/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/Microsoft.Extensions.Configuration.FileProviderExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.Extensions.Configuration.FileProviderExtensions.dll": {}
-        }
-      },
       "Microsoft.Extensions.Configuration.Json/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -1669,87 +1640,6 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Microsoft.Owin/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.dll": {}
-        }
-      },
-      "Microsoft.Owin.Cors/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.Cors": "5.0.0",
-          "Microsoft.Owin": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Cors.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Cors.dll": {}
-        }
-      },
-      "Microsoft.Owin.Host.SystemWeb/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security.Cookies/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Microsoft.Owin.Security": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.Cookies.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.Cookies.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security.OAuth/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Microsoft.Owin.Security": "3.0.1",
-          "Newtonsoft.Json": "6.0.4",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
-        }
-      },
       "Newtonsoft.Json/6.0.6": {
         "type": "package",
         "compile": {
@@ -1757,15 +1647,6 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
-      "Owin/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Owin.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Owin.dll": {}
         }
       },
       "Remotion.Linq/2.0.1": {
@@ -2568,15 +2449,6 @@
           "lib/net451/Microsoft.AspNet.Identity.dll": {}
         }
       },
-      "Microsoft.AspNet.Identity.Core/2.2.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
-        }
-      },
       "Microsoft.AspNet.Identity.EntityFramework/3.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -3340,26 +3212,6 @@
           "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.FileProviderExtensions/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/Microsoft.Extensions.Configuration.FileProviderExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.Extensions.Configuration.FileProviderExtensions.dll": {}
-        }
-      },
       "Microsoft.Extensions.Configuration.Json/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -3671,87 +3523,6 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Microsoft.Owin/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.dll": {}
-        }
-      },
-      "Microsoft.Owin.Cors/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.Cors": "5.0.0",
-          "Microsoft.Owin": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Cors.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Cors.dll": {}
-        }
-      },
-      "Microsoft.Owin.Host.SystemWeb/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security.Cookies/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Microsoft.Owin.Security": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.Cookies.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.Cookies.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security.OAuth/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Microsoft.Owin.Security": "3.0.1",
-          "Newtonsoft.Json": "6.0.4",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
-        }
-      },
       "Newtonsoft.Json/6.0.6": {
         "type": "package",
         "compile": {
@@ -3759,15 +3530,6 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
-      "Owin/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Owin.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Owin.dll": {}
         }
       },
       "Remotion.Linq/2.0.1": {
@@ -4570,15 +4332,6 @@
           "lib/net451/Microsoft.AspNet.Identity.dll": {}
         }
       },
-      "Microsoft.AspNet.Identity.Core/2.2.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
-        }
-      },
       "Microsoft.AspNet.Identity.EntityFramework/3.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -5342,26 +5095,6 @@
           "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.FileProviderExtensions/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.FileProviders.Physical": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/Microsoft.Extensions.Configuration.FileProviderExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.Extensions.Configuration.FileProviderExtensions.dll": {}
-        }
-      },
       "Microsoft.Extensions.Configuration.Json/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -5673,87 +5406,6 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Microsoft.Owin/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.dll": {}
-        }
-      },
-      "Microsoft.Owin.Cors/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.Cors": "5.0.0",
-          "Microsoft.Owin": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Cors.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Cors.dll": {}
-        }
-      },
-      "Microsoft.Owin.Host.SystemWeb/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security.Cookies/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Microsoft.Owin.Security": "3.0.1",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.Cookies.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.Cookies.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security.OAuth/3.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin": "3.0.1",
-          "Microsoft.Owin.Security": "3.0.1",
-          "Newtonsoft.Json": "6.0.4",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
-        }
-      },
       "Newtonsoft.Json/6.0.6": {
         "type": "package",
         "compile": {
@@ -5761,15 +5413,6 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
-      "Owin/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Owin.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Owin.dll": {}
         }
       },
       "Remotion.Linq/2.0.1": {
@@ -6444,18 +6087,6 @@
         "Microsoft.AspNet.Identity.3.0.0-rc1-final.nupkg",
         "Microsoft.AspNet.Identity.3.0.0-rc1-final.nupkg.sha512",
         "Microsoft.AspNet.Identity.nuspec"
-      ]
-    },
-    "Microsoft.AspNet.Identity.Core/2.2.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "jjurNglpmcv0SLBd4Fmar8ZoJ2yqfTf6iuP3p8wVH7Nvanfo8l3qTBzq3qRQz2BQlb6iXJiDWPjcnIImVz512g==",
-      "files": [
-        "lib/net45/Microsoft.AspNet.Identity.Core.dll",
-        "lib/net45/Microsoft.AspNet.Identity.Core.xml",
-        "Microsoft.AspNet.Identity.Core.2.2.1.nupkg",
-        "Microsoft.AspNet.Identity.Core.2.2.1.nupkg.sha512",
-        "Microsoft.AspNet.Identity.Core.nuspec"
       ]
     },
     "Microsoft.AspNet.Identity.EntityFramework/3.0.0-rc1-final": {
@@ -7151,22 +6782,6 @@
         "Microsoft.Extensions.Configuration.FileExtensions.nuspec"
       ]
     },
-    "Microsoft.Extensions.Configuration.FileProviderExtensions/1.0.0-rc1-final": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "OhIrGyCmuWalr0WEAtoRarpTTxP/hb4CHHvv15KYjzgB91T5In2PMaBX65Y0pBxvhKqPdocvo8iNOh2Sk+abNw==",
-      "files": [
-        "lib/dotnet5.4/Microsoft.Extensions.Configuration.FileProviderExtensions.dll",
-        "lib/dotnet5.4/Microsoft.Extensions.Configuration.FileProviderExtensions.xml",
-        "lib/net451/Microsoft.Extensions.Configuration.FileProviderExtensions.dll",
-        "lib/net451/Microsoft.Extensions.Configuration.FileProviderExtensions.xml",
-        "lib/netcore50/Microsoft.Extensions.Configuration.FileProviderExtensions.dll",
-        "lib/netcore50/Microsoft.Extensions.Configuration.FileProviderExtensions.xml",
-        "Microsoft.Extensions.Configuration.FileProviderExtensions.1.0.0-rc1-final.nupkg",
-        "Microsoft.Extensions.Configuration.FileProviderExtensions.1.0.0-rc1-final.nupkg.sha512",
-        "Microsoft.Extensions.Configuration.FileProviderExtensions.nuspec"
-      ]
-    },
     "Microsoft.Extensions.Configuration.Json/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -7487,78 +7102,6 @@
         "Microsoft.Net.Http.Headers.nuspec"
       ]
     },
-    "Microsoft.Owin/3.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "64yZsGN9uRnXNVAyAT4F6KWmdDUJ6yX4uqzxKTdGANKH1oMt0IKZ7THRRa3mXIOo8iSu4tq/DCBUycUY9pXZzw==",
-      "files": [
-        "lib/net45/Microsoft.Owin.dll",
-        "lib/net45/Microsoft.Owin.XML",
-        "Microsoft.Owin.3.0.1.nupkg",
-        "Microsoft.Owin.3.0.1.nupkg.sha512",
-        "Microsoft.Owin.nuspec"
-      ]
-    },
-    "Microsoft.Owin.Cors/3.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "b3dMOu1/nqjslrEOWnbxIBk4OgeDUXNUtiGmymvzU1nBb8CyWmtMfPIxqu1f7jJEz87R4FUGS8UvvZatwbPP6w==",
-      "files": [
-        "lib/net45/Microsoft.Owin.Cors.dll",
-        "lib/net45/Microsoft.Owin.Cors.XML",
-        "Microsoft.Owin.Cors.3.0.1.nupkg",
-        "Microsoft.Owin.Cors.3.0.1.nupkg.sha512",
-        "Microsoft.Owin.Cors.nuspec"
-      ]
-    },
-    "Microsoft.Owin.Host.SystemWeb/3.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sNKJ7cPOnXpK5fr7upc77RF0MYUg1lKeR3hiMVhXWH9LLK7UZN7bKf2YwObT0wn+bAs3LRXdjbqDH48PF243Nw==",
-      "files": [
-        "lib/net45/Microsoft.Owin.Host.SystemWeb.dll",
-        "lib/net45/Microsoft.Owin.Host.SystemWeb.xml",
-        "Microsoft.Owin.Host.SystemWeb.3.0.1.nupkg",
-        "Microsoft.Owin.Host.SystemWeb.3.0.1.nupkg.sha512",
-        "Microsoft.Owin.Host.SystemWeb.nuspec"
-      ]
-    },
-    "Microsoft.Owin.Security/3.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "LPoUxaTKzmjs97wDCTtBIoRwp30Jkq9UFnoj+EfMFJv+XxjcvHE/D573LRomA568WhvXoI2cUiwhZFvqfbLMVg==",
-      "files": [
-        "lib/net45/Microsoft.Owin.Security.dll",
-        "lib/net45/Microsoft.Owin.Security.XML",
-        "Microsoft.Owin.Security.3.0.1.nupkg",
-        "Microsoft.Owin.Security.3.0.1.nupkg.sha512",
-        "Microsoft.Owin.Security.nuspec"
-      ]
-    },
-    "Microsoft.Owin.Security.Cookies/3.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "l2GRNvO4oyxfpmWtfUYvN3fA4jWduE84UCNqWTj6yhYDSE76wI+W022qTTEMr0VoCDiJ0GGYdvAjQm3xbSsB9Q==",
-      "files": [
-        "lib/net45/Microsoft.Owin.Security.Cookies.dll",
-        "lib/net45/Microsoft.Owin.Security.Cookies.xml",
-        "Microsoft.Owin.Security.Cookies.3.0.1.nupkg",
-        "Microsoft.Owin.Security.Cookies.3.0.1.nupkg.sha512",
-        "Microsoft.Owin.Security.Cookies.nuspec"
-      ]
-    },
-    "Microsoft.Owin.Security.OAuth/3.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "wttlhNSijhsrF7iwxYzxhTr8AYxXI6qoiw3b6dhVhqXOYCDp8OQ5yhHFtWlst+65l7VHduXassspZ974rtLMaw==",
-      "files": [
-        "lib/net45/Microsoft.Owin.Security.OAuth.dll",
-        "lib/net45/Microsoft.Owin.Security.OAuth.XML",
-        "Microsoft.Owin.Security.OAuth.3.0.1.nupkg",
-        "Microsoft.Owin.Security.OAuth.3.0.1.nupkg.sha512",
-        "Microsoft.Owin.Security.OAuth.nuspec"
-      ]
-    },
     "Newtonsoft.Json/6.0.6": {
       "type": "package",
       "sha512": "w26uZNyCG5VeoKiEOJ4+9/o8koSofLKwHl7WLreIcp0U6r57L7WiRXmjp8MTKFw6dYNZ9AE0lw69WYbIhUsU9Q==",
@@ -7581,16 +7124,6 @@
         "Newtonsoft.Json.6.0.6.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
-      ]
-    },
-    "Owin/1.0.0": {
-      "type": "package",
-      "sha512": "OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
-      "files": [
-        "lib/net40/Owin.dll",
-        "Owin.1.0.0.nupkg",
-        "Owin.1.0.0.nupkg.sha512",
-        "Owin.nuspec"
       ]
     },
     "Remotion.Linq/2.0.1": {
@@ -8429,18 +7962,8 @@
       "Microsoft.AspNet.Mvc.WebApiCompatShim >= 6.0.0-rc1-final",
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final",
       "Microsoft.AspNet.StaticFiles >= 1.0.0-rc1-final",
-      "Microsoft.Extensions.Configuration.FileProviderExtensions >= 1.0.0-rc1-final",
-      "Microsoft.Extensions.Configuration.Json >= 1.0.0-rc1-final",
-      "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
-      "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
-      "Microsoft.Owin >= 3.0.1",
-      "Microsoft.Owin.Cors >= 3.0.1",
-      "Microsoft.Owin.Host.SystemWeb >= 3.0.1",
-      "Microsoft.Owin.Security >= 3.0.1",
-      "Microsoft.Owin.Security.Cookies >= 3.0.1",
-      "Microsoft.Owin.Security.OAuth >= 3.0.1",
-      "Microsoft.AspNet.Identity.Core >= 2.2.1"
+      "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final"
     ],
     "DNX,Version=v4.5.1": [
       "Microsoft.Net.Http >= 2.2.22",
