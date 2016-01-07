@@ -5,44 +5,75 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.Configuration;
+using PA.Models;
+using Microsoft.Extensions.Logging;
 
 namespace PA.Controllers
 {
     //[Route("api/[controller]")]
     public class AccountController : Controller
     {
-        #region Configuration
-        private IConfigurationRoot _Configuration;
-        public IConfigurationRoot Configuration
+        private IConfigurationRoot _appSettings;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ILogger _logger;
+
+        public AccountController(IConfigurationRoot appSettings, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ILoggerFactory loggerFactory)
         {
-            get
-            {
-                if (_Configuration == null)
-                {
-                    var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json").AddEnvironmentVariables();
-                    _Configuration = builder.Build();
-                }
-                return _Configuration;
-            }
+            _appSettings = appSettings;
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _logger = loggerFactory.CreateLogger<AccountController>();
         }
-        #endregion
 
         [HttpPost]
         [Route("api/login")]
-        public IActionResult Post([FromBody]Credentials credentials)
+        public async Task<IActionResult> Post([FromBody]Credentials credentials)
         {
-            var adminUserName = Configuration["ApplicationSettings:AdminUserName"];
-            var adminPassword = Configuration["ApplicationSettings:AdminPassword"];
+            var adminUserName = _appSettings["ApplicationSettings:AdminUserName"];
+            var adminPassword = _appSettings["ApplicationSettings:AdminPassword"];
 
-            if (adminUserName != credentials.Username || adminPassword != credentials.Password)
+
+            if (ModelState.IsValid)
             {
-                //HttpContext.Session["IsLogged"] = "false";
-                return HttpUnauthorized();
+
+                //if (adminUserName != credentials.Username || adminPassword != credentials.Password)
+                //{
+                    var result = await _signInManager.PasswordSignInAsync(credentials.Username, credentials.Password, false, false);
+
+                    if (result.Succeeded)
+                    {
+                        _logger.LogInformation(1, "User logged in.");
+                        return Ok(result);
+                        //return RedirectToLocal(returnUrl);
+                    }
+                    if (result.RequiresTwoFactor)
+                    {
+                        return Ok(result);
+                        //return RedirectToAction(nameof(SendCode), new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    }
+                    if (result.IsLockedOut)
+                    {
+                        _logger.LogWarning(2, "User account locked out.");
+                        return HttpUnauthorized();
+                        //return View("Lockout");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        return HttpUnauthorized();
+                        //return View(model);
+                    }
+
+                    //return HttpUnauthorized();
+                //}
+                //else {
+                //    //HttpContext.Session["IsLogged"] = "true";
+                //    return Ok();
+                //}
             }
-            else {
-                //HttpContext.Session["IsLogged"] = "true";
-                return Ok();
-            }
+
+            return HttpUnauthorized();
         }
 
 

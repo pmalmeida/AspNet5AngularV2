@@ -22,21 +22,21 @@ namespace PA.Migrations
 
         public async Task EnsureSeedData()
         {
-            //if (!_context.Users.Any())
-            //{
-            //    await _userManager.CreateAsync(new IdentityUser("admin"), "1234");
+            if (!_context.Users.Any())
+            {
+                await _userManager.CreateAsync(new ApplicationUser() { UserName = "admin" }, "1234");
 
-            //    for (int i = 0; i < 6; i++)
-            //    {
-            //        var user = new IdentityUser
-            //        {
-            //            UserName = $"test{i}",
-            //            Email = $"test{i}@tester.com"
-            //        };
+                for (int i = 0; i < 6; i++)
+                {
+                    var user = new ApplicationUser
+                    {
+                        UserName = $"test{i}",
+                        Email = $"test{i}@tester.com"
+                    };
 
-            //        await _userManager.CreateAsync(user, "000"+i);
-            //    }
-            //}
+                    await _userManager.CreateAsync(user, "000" + i);
+                }
+            }
 
             if (!_context.AreaSet.Any())
             {

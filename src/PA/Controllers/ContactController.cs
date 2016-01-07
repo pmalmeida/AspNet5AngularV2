@@ -26,28 +26,15 @@ namespace PA.API
         private readonly IEmailSender _emailSender;
 
         private ApplicationDbContext _context;
+        IConfigurationRoot appSettings;
 
-        public ContactController(IEmailSender emailSender, ApplicationDbContext db)
+        public ContactController(IEmailSender emailSender, ApplicationDbContext db, IConfigurationRoot appSettings)
         {
             _emailSender = emailSender;
             this._context = db;
-        }
+            this.appSettings = appSettings;
+        }       
 
-        #region Configuration
-        private IConfigurationRoot _Configuration;
-        public IConfigurationRoot Configuration
-        {
-            get
-            {
-                if (_Configuration == null)
-                {
-                    var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json").AddEnvironmentVariables();
-                    _Configuration = builder.Build();
-                }
-                return _Configuration;
-            }
-        }
-        #endregion
 
         [HttpGet]
         public IEnumerable<Contact> Get()
@@ -128,7 +115,7 @@ namespace PA.API
                     , areasSb.ToString()
                     , item.Message);
 
-                var emailAddressTo = Configuration["ApplicationSettings:ContactSettings:EmailAddressTo"];
+                var emailAddressTo = appSettings["ApplicationSettings:ContactSettings:EmailAddressTo"];
                 _emailSender.Send(emailAddressTo, "Contacto Recebido", contactInfoMessage);
 
                 #endregion
