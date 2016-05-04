@@ -8,7 +8,7 @@ Single page Application using :
   - EntityFramework (CodeFirst) / SQLServer
   - Visual Studio Community 2015
 
-
+Required: SQL Server 2014 LocalDB Express
 Deployment Package : https://www.dropbox.com/s/xkbjeqtlfwh3m5v/AspNet5Angular.7z?dl=0
 
 
